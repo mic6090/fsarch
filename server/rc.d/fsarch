@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# PROVIDE: fsarch
+# REQUIRE: networking
+# KEYWORD:
+
+. /etc/rc.subr
+
+name="fsarch"
+rcvar="fsarch_enable"
+arch_backup_user="backup"
+arch_backup_command="/usr/local/go/server"
+pidfile="/var/run/fsarch/${name}.pid"
+command="/usr/sbin/daemon"
+command_args="-P ${pidfile} -r -S -f ${arch_backup_command}"
+
+load_rc_config $name
+: ${fsarch_enable:=no}
+
+run_rc_command "$1"

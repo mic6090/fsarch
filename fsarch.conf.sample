@@ -1,0 +1,15 @@
+[agent]
+server = "http://127.0.0.1:80"
+storage = "e:\fs"
+tsfile = "e:\timestamp"
+
+[server]
+# address to bind to, default 0.0.0.0
+bind = "127.0.0.1"
+# port to bind to, default 80
+port = 80
+backup = "/mirror"
+# data storage path in backup, must be the same fs with hashpath
+datapath = "data"
+# hash storage path in backup, must be the same fs with datapath
+hashpath = "hash"
