@@ -36,7 +36,10 @@ func main() {
 	if err == nil {
 		tsTime = finfo.ModTime()
 	}
-	_ = fsarch.Touch(config.Tsfile)
+	err = fsarch.Touch(config.Tsfile)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	f, err := os.Open(config.Storage)
 	if err != nil {
